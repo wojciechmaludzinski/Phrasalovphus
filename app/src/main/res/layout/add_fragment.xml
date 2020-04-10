@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:context=".MainActivity">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rozmiar"
+                    android:textColor="@color/white"
+                    tools:layout_editor_absoluteX="199dp"
+                    tools:layout_editor_absoluteY="117dp" />
+
+                <TextView
+                    android:id="@+id/seekbarvalue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    tools:layout_editor_absoluteX="199dp"
+                    tools:layout_editor_absoluteY="117dp" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:contextClickable="true"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </LinearLayout>
+
+        <EditText
+
+            android:id="@+id/txt1"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/txt2"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@+id/txt1"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/txt3"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@+id/txt2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/txt4"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@+id/txt3"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/txt5"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@+id/txt4"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/txt6"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt1" />
+
+        <EditText
+            android:id="@+id/txt7"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt6"
+            app:layout_constraintTop_toBottomOf="@+id/txt2" />
+
+        <EditText
+            android:id="@+id/txt8"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt7"
+            app:layout_constraintTop_toBottomOf="@+id/txt3" />
+
+        <EditText
+            android:id="@+id/txt9"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt8"
+            app:layout_constraintTop_toBottomOf="@+id/txt4" />
+
+        <EditText
+            android:id="@+id/txt10"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt9"
+            app:layout_constraintTop_toBottomOf="@+id/txt5" />
+
+        <EditText
+            android:id="@+id/txt11"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt6" />
+
+        <EditText
+            android:id="@+id/txt12"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt11"
+            app:layout_constraintTop_toBottomOf="@+id/txt7" />
+
+        <EditText
+            android:id="@+id/txt13"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt12"
+            app:layout_constraintTop_toBottomOf="@+id/txt8" />
+
+        <EditText
+            android:id="@+id/txt14"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt13"
+            app:layout_constraintTop_toBottomOf="@+id/txt9" />
+
+        <EditText
+            android:id="@+id/txt15"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt14"
+            app:layout_constraintTop_toBottomOf="@+id/txt10" />
+
+        <EditText
+            android:id="@+id/txt16"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt11" />
+
+        <EditText
+            android:id="@+id/txt17"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt16"
+            app:layout_constraintTop_toBottomOf="@+id/txt12" />
+
+        <EditText
+            android:id="@+id/txt18"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt17"
+            app:layout_constraintTop_toBottomOf="@+id/txt13" />
+
+        <EditText
+            android:id="@+id/txt19"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt18"
+            app:layout_constraintTop_toBottomOf="@+id/txt14" />
+
+        <EditText
+            android:id="@+id/txt20"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt19"
+            app:layout_constraintTop_toBottomOf="@+id/txt15" />
+
+        <EditText
+            android:id="@+id/txt21"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt16" />
+
+        <EditText
+            android:id="@+id/txt22"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt21"
+            app:layout_constraintTop_toBottomOf="@+id/txt17" />
+
+        <EditText
+            android:id="@+id/txt23"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt22"
+            app:layout_constraintTop_toBottomOf="@+id/txt18" />
+
+        <EditText
+            android:id="@+id/txt24"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt23"
+            app:layout_constraintTop_toBottomOf="@+id/txt19" />
+
+        <EditText
+            android:id="@+id/txt25"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/primary_dark"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/txt24"
+            app:layout_constraintTop_toBottomOf="@+id/txt20" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:text="@string/btn_add"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:theme="@style/MatButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt13" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="156dp"
+            android:text="@string/name"
+            android:textSize="10sp"
+
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt11" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="140dp"
+            android:hint="@string/namehint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/primary_light"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/nameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/txt11" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</ScrollView>

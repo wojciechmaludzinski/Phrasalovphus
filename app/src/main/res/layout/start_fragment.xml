@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary" >
+
+        <!--wymienic na logo-->
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/app_name"
+            android:textColor="@color/textColor"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/add"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/browse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_name"
+            app:layout_constraintVertical_bias="1.0"
+            android:text="@string/btn_add"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:theme="@style/MatButton"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/browse"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/button"
+
+            app:layout_constraintBottom_toTopOf="@+id/add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+
+            android:text="@string/browse"
+            android:textColor="@color/textColor"
+            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            android:theme="@style/MatButton"
+             />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
