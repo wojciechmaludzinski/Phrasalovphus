@@ -35,7 +35,6 @@ public class StartFragment extends BaseFragment {
         add.setOnClickListener(v -> {
             openFragment(new AddFragment(), true, tagStartFragment);
         });
-
         browse.setOnClickListener(v -> {
             openFragment(new BrowseFragment(), true, tagStartFragment);
         });
