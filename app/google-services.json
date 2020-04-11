@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "375537802410",
+    "firebase_url": "https://phrasalovphus.firebaseio.com",
+    "project_id": "phrasalovphus",
+    "storage_bucket": "phrasalovphus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375537802410:android:9eab9d50c74c5a8c7544d3",
+        "android_client_info": {
+          "package_name": "com.slowingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375537802410-t2vjr3gn1q0bioggjrqtuncrbpqdm2b8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLeYQSIjTFn_dGhC7ey4Fkm77g9b_-L8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375537802410-t2vjr3gn1q0bioggjrqtuncrbpqdm2b8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
