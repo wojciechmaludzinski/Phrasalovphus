@@ -11,21 +11,36 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.DocumentReference;
+
+import java.util.ArrayList;
 
 import io.reactivex.Observable;
 
 public class AddFragment extends BaseFragment {
 
+    String tag = "AddFragmentTag";
     private AddViewModel mViewModel;
+
     private SeekBar seekBar;
     private TextView seekBarValue;
     private EditText txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10,
                     txt11, txt12, txt13, txt14, txt15, txt16, txt17, txt18, txt19, txt20,
                     txt21, txt22, txt23, txt24, txt25;
     private EditText [] editTexts;
-    private EditText name;
+    private EditText nameEditText;
     private Button add;
+
+    private boolean correctData = false;
+    private String name="";
+    public static long id;
+    private ArrayList<String> txt = new ArrayList<>();
+
+    private DocumentReference values;
+
 
 
 
@@ -52,6 +67,7 @@ public class AddFragment extends BaseFragment {
                 }
 
                 if(seekBarValue.getText().toString().equals("4")) {
+
                     for(int i=4; i<editTexts.length; i+=5){
                         editTexts[i].setVisibility(View.GONE);
                     }
@@ -80,17 +96,31 @@ public class AddFragment extends BaseFragment {
             }
         });
 
-        for (EditText editText : editTexts) {
-            editText.setOnClickListener(v -> {
-                //TODO: save to database
-            });
-        }
 
         add.setOnClickListener(v -> {
-            //TODO: send to database
+
+            name = "";
+            for(short i=0; i<24; i++){ txt.add(""); }
+
+            //Data verification
+            if(nameEditText.getText()!=null&&!nameEditText.getText().toString().isEmpty()){
+                name = nameEditText.getText().toString();
+                correctData = true;
+            }
+            else{
+                Snackbar.make(requireView(), R.string.snackbar_empty_name, Snackbar.LENGTH_SHORT).show();
+                correctData = false;
+            }
+
+            //Saving data
+//            if(correctData){
+//                mViewModel.addToDatabase(editTexts, values);
+//            }
+
+
+
+
         });
-
-
 
 
 
@@ -101,10 +131,10 @@ public class AddFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mViewModel = ViewModelProviders.of(this, factory).get(AddViewModel.class);
-        //mViewModel = new ViewModelProvider(this, factory).get(AddViewModel.class);
+        mViewModel = new ViewModelProvider(this, factory).get(AddViewModel.class);
         // TODO: Use the ViewModel
     }
+
 
     private void init(View view){
         seekBarValue = view.findViewById(R.id.seekbarvalue);
@@ -115,7 +145,7 @@ public class AddFragment extends BaseFragment {
         seekBar.setProgress(2);
         seekBar.setMax(2);
 
-
+        mViewModel.fillArray();
 
         editTexts = new EditText[]{
             txt1 = view.findViewById(R.id.txt1),
@@ -145,10 +175,8 @@ public class AddFragment extends BaseFragment {
             txt25 = view.findViewById(R.id.txt25)
         };
 
-        name = view.findViewById(R.id.name);
+        nameEditText = view.findViewById(R.id.name);
         add = view.findViewById(R.id.add);
-
-
 
     }
 
