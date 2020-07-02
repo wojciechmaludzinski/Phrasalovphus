@@ -1,20 +1,19 @@
 package com.slowingo;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 /**Every new ViewModel must be added here.
  * */
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private DocumentReference values = db.document("matrix/values");
-    private DocumentReference matrixName = db.document("matrix/name");
-    private DocumentReference matrixId = db.document("matrix/id");
+    public FirebaseFirestore db = FirebaseFirestore.getInstance();
+//    DocumentReference values = db.document("matrix/values");
+//    DocumentReference matrixName = db.document("matrix/name");
+//    DocumentReference matrixId = db.document("matrix/id");
 
     @SuppressWarnings("unchecked")
     @NonNull
@@ -22,7 +21,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(Class<T> modelClass) {
 
         if(modelClass.isAssignableFrom(AddViewModel.class)) {
-            return (T) new AddViewModel();
+            return (T) new AddViewModel(db);
         }
         if(modelClass.isAssignableFrom(BrowseViewModel.class)) {
             return (T) new BrowseViewModel();

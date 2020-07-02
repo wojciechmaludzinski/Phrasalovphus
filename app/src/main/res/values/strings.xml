@@ -16,4 +16,5 @@
     <string name="name">"Name: "</string>
     <string name="namehint">name</string>
     <string name="snackbar_empty_name">Name cannot be empty</string>
+    <string name="snackbar_empty_field">At least one field is empty</string>
 </resources>
