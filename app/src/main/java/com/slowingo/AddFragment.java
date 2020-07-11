@@ -1,7 +1,6 @@
 package com.slowingo;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,17 +93,15 @@ public class AddFragment extends BaseFragment {
 
                 name = nameEditText.getText().toString();
                 correctData = true;
-                Log.i("dataVerify", ""+correctData);
             }
             else{
                 Snackbar.make(requireView(), R.string.snackbar_empty_name, Snackbar.LENGTH_SHORT).show();
                 correctData = false;
             }
 
-            Log.i("onActivityCreated", "before if");
             if(correctData){
-                mViewModel.addToDatabase(txt, mViewModel.getValues(), Integer.parseInt(seekBarValue.getText().toString()));
-                Log.i("onActivityCreated", "after if");
+                mViewModel.addToDatabase(txt, name, Integer.parseInt(seekBarValue.getText().toString()));
+
             }
 
 
@@ -114,12 +111,32 @@ public class AddFragment extends BaseFragment {
         return view;
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         mViewModel = new ViewModelProvider(this, factory).get(AddViewModel.class);
 
+
+
+    }
+
+    public void onStart() {
+        super.onStart();
+        bind(mViewModel.getAdded(), (added) -> {
+            if(added){
+                Snackbar.make(requireView(), R.string.i_added_matrix, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(requireView(), mViewModel.getIdshort()+"is ID for this matrix", Snackbar.LENGTH_LONG).show();
+                nameEditText.setText("");
+                for(int i=0; i<=24; i++){
+                    editTexts[i].setText("");
+                }
+            }
+        });
+
+        bind(mViewModel.getError(), (error) -> Snackbar.make(requireView(), error, Snackbar.LENGTH_SHORT).show());
 
     }
 
@@ -134,11 +151,13 @@ public class AddFragment extends BaseFragment {
         seekBar.setMax(2);
 
         editTexts = new EditText[]{
-                //VISIBLE FOR 3x3 MATRIX
+                //VISIBLE FOR 1x1 MATRIX
             txt1 = view.findViewById(R.id.txt1),
+                //VISIBLE FOR 2x2 MATRIX
             txt2 = view.findViewById(R.id.txt2),
             txt6 = view.findViewById(R.id.txt6),
             txt7 = view.findViewById(R.id.txt7),
+                //VISIBLE FOR 3x3 MATRIX
             txt3 = view.findViewById(R.id.txt3),
             txt8 = view.findViewById(R.id.txt8),
             txt11 = view.findViewById(R.id.txt11),

@@ -21,7 +21,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(Class<T> modelClass) {
 
         if(modelClass.isAssignableFrom(AddViewModel.class)) {
-            return (T) new AddViewModel(db);
+            return (T) new AddViewModel();
         }
         if(modelClass.isAssignableFrom(BrowseViewModel.class)) {
             return (T) new BrowseViewModel();

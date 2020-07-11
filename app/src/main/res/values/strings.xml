@@ -17,4 +17,5 @@
     <string name="namehint">name</string>
     <string name="snackbar_empty_name">Name cannot be empty</string>
     <string name="snackbar_empty_field">At least one field is empty</string>
+    <string name="i_added_matrix">Added matrix successfully</string>
 </resources>

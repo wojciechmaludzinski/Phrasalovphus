@@ -1,6 +1,7 @@
 package com.slowingo;
 
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import androidx.lifecycle.ViewModel;
@@ -8,9 +9,12 @@ import androidx.lifecycle.ViewModel;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -23,16 +27,21 @@ import io.reactivex.subjects.BehaviorSubject;
 
 public class AddViewModel extends ViewModel {
 
-    AddViewModel(FirebaseFirestore db) {
-        this.values = db.document("matrix/values");
-        this.name = db.document("matrix/name");
-        this.id = db.document("matrix/id");
+    AddViewModel() {
     }
 
+    public FirebaseFirestore getDb() {
+        return db;
+    }
 
-    private DocumentReference values;
-    private DocumentReference name;
-    private DocumentReference id;
+    public String getIdshort() {
+        return idshort;
+    }
+
+    FirebaseFirestore db =  FirebaseFirestore.getInstance();
+    String idshort = "not yet declared";
+    @SuppressLint("SimpleDateFormat")
+    SimpleDateFormat formatter =  new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private CompositeDisposable disposables = new CompositeDisposable();
     private BehaviorSubject<Boolean> addedSubject = BehaviorSubject.createDefault(false);
     private Observable<Boolean> added = addedSubject.hide();
@@ -45,28 +54,34 @@ public class AddViewModel extends ViewModel {
         return error;
     }
 
-    DocumentReference getValues() {
-        Log.i("getValues", "getValues");
-        return values;
-    }
-
-    void addToDatabase(ArrayList txt, DocumentReference values, int size){
+    void addToDatabase(ArrayList txt, String nametxt, int size){
         Log.i("addToDatabase", "beggining");
         disposables.add(
-                saveData(txt, values, size)
+                saveData(txt, nametxt, size)
                 .subscribeOn(Schedulers.io())
                 .subscribe(() -> addedSubject.onNext(true),(throwable -> errorSubject.onNext(throwable.getMessage()))));
     }
-    private Completable saveData(ArrayList txt, DocumentReference values, int size){
-        Log.i("saveDate", "beggining");
+    private Completable saveData(ArrayList txt, String nametxt, int size){
+
         Map<String, Object> matrix = new HashMap<>();
         for(int i=0; i<=(size*size)-1; i++){
             matrix.put(""+i,txt.get(i));
         }
-        values.set(matrix);
-        Log.i("saveData", "ending");
-        return Completable.complete();
 
+        Map<String,String> metadata = new HashMap<>();
+        metadata.put("matrixName", nametxt);
+        metadata.put("size", String.valueOf(size));
+        metadata.put("date", formatter.format(new Date()));
+
+
+        UUID id = UUID.randomUUID();
+        idshort = id.toString().substring(0, 8);
+        DocumentReference valuesRef = db.collection(idshort).document("values");
+        DocumentReference nameRef = db.collection(idshort).document("name");
+
+        valuesRef.set(matrix);
+        nameRef.set(metadata);
+        return Completable.complete();
     }
 
 
